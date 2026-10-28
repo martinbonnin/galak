@@ -1,0 +1,24 @@
+// Klib ABI Dump
+// Targets: [linuxX64, macosArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <net.mbonnin.galak:galak-ktor>
+final enum class galak.ktor/WsProtocol : kotlin/Enum<galak.ktor/WsProtocol> { // galak.ktor/WsProtocol|null[0]
+    enum entry GraphqlWS // galak.ktor/WsProtocol.GraphqlWS|null[0]
+    enum entry Legacy // galak.ktor/WsProtocol.Legacy|null[0]
+
+    final val entries // galak.ktor/WsProtocol.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<galak.ktor/WsProtocol> // galak.ktor/WsProtocol.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): galak.ktor/WsProtocol // galak.ktor/WsProtocol.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<galak.ktor/WsProtocol> // galak.ktor/WsProtocol.values|values#static(){}[0]
+}
+
+final fun (io.ktor.server.application/Application).galak.ktor/galakModule(com.apollographql.apollo.execution/ExecutableSchema, kotlin/String = ..., kotlin/Function1<io.ktor.server.routing/RoutingRequest, com.apollographql.apollo.api/ExecutionContext> = ...) // galak.ktor/galakModule|galakModule@io.ktor.server.application.Application(com.apollographql.apollo.execution.ExecutableSchema;kotlin.String;kotlin.Function1<io.ktor.server.routing.RoutingRequest,com.apollographql.apollo.api.ExecutionContext>){}[0]
+final fun (io.ktor.server.application/Application).galak.ktor/galakSandboxModule(kotlin/String = ..., kotlin/String = ..., kotlin/Function1<io.ktor.server.routing/RoutingCall, kotlin/String> = ...) // galak.ktor/galakSandboxModule|galakSandboxModule@io.ktor.server.application.Application(kotlin.String;kotlin.String;kotlin.Function1<io.ktor.server.routing.RoutingCall,kotlin.String>){}[0]
+final fun (io.ktor.server.application/Application).galak.ktor/galakSubscriptionModule(com.apollographql.apollo.execution/ExecutableSchema, kotlin/String = ..., galak.ktor/WsProtocol = ..., kotlin/Function1<io.ktor.server.request/ApplicationRequest, com.apollographql.apollo.api/ExecutionContext> = ...) // galak.ktor/galakSubscriptionModule|galakSubscriptionModule@io.ktor.server.application.Application(com.apollographql.apollo.execution.ExecutableSchema;kotlin.String;galak.ktor.WsProtocol;kotlin.Function1<io.ktor.server.request.ApplicationRequest,com.apollographql.apollo.api.ExecutionContext>){}[0]
+final suspend fun (io.ktor.server.application/ApplicationCall).galak.ktor/respondGraphQL(com.apollographql.apollo.execution/ExecutableSchema, com.apollographql.apollo.api/ExecutionContext = ..., kotlin/Function2<io.ktor.http.content/OutgoingContent, com.apollographql.apollo.execution/GraphQLResponse?, kotlin/Unit> = ...) // galak.ktor/respondGraphQL|respondGraphQL@io.ktor.server.application.ApplicationCall(com.apollographql.apollo.execution.ExecutableSchema;com.apollographql.apollo.api.ExecutionContext;kotlin.Function2<io.ktor.http.content.OutgoingContent,com.apollographql.apollo.execution.GraphQLResponse?,kotlin.Unit>){}[0]
+final suspend fun (io.ktor.server.request/ApplicationRequest).galak.ktor/parseAsGraphQLRequest(): kotlin/Result<com.apollographql.apollo.execution/GraphQLRequest> // galak.ktor/parseAsGraphQLRequest|parseAsGraphQLRequest@io.ktor.server.request.ApplicationRequest(){}[0]

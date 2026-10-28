@@ -1,0 +1,29 @@
+schema {
+  query: Query
+}
+
+type Product @key(fields: "id") {
+  id: String!
+
+  name: String!
+}
+
+type Query {
+  _entities(representations: [_Any!]!): [_Entity!]!
+
+  _service: _Service!
+
+  products: [Product!]!
+}
+
+union _Entity = Product
+
+type _Service {
+  sdl: String!
+}
+
+scalar _Any
+
+scalar _FieldSet
+
+directive @key(fields: _FieldSet!) on OBJECT | INTERFACE

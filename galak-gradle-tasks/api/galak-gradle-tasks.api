@@ -1,0 +1,32 @@
+public final class galak/gradle/VersionKt {
+	public static final field VERSION Ljava/lang/String;
+}
+
+public final class galak/gradle/task/GalakCheckSchemaEntryPoint {
+	public static final field Companion Lgalak/gradle/task/GalakCheckSchemaEntryPoint$Companion;
+	public fun <init> ()V
+	public static final fun run (Ljava/io/File;Ljava/io/File;)V
+}
+
+public final class galak/gradle/task/GalakCheckSchemaEntryPoint$Companion {
+	public final fun run (Ljava/io/File;Ljava/io/File;)V
+}
+
+public final class galak/gradle/task/GalakCheckSchemaKt {
+	public static final fun galakCheckSchema (Ljava/io/File;Ljava/io/File;)V
+}
+
+public final class galak/gradle/task/GalakDumpSchemaEntryPoint {
+	public static final field Companion Lgalak/gradle/task/GalakDumpSchemaEntryPoint$Companion;
+	public fun <init> ()V
+	public static final fun run (Ljava/io/File;Ljava/io/File;)V
+}
+
+public final class galak/gradle/task/GalakDumpSchemaEntryPoint$Companion {
+	public final fun run (Ljava/io/File;Ljava/io/File;)V
+}
+
+public final class galak/gradle/task/GalakDumpSchemaKt {
+	public static final fun galakDumpSchema (Ljava/io/File;Ljava/io/File;)V
+}
+

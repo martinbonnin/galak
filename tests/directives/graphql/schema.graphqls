@@ -1,0 +1,27 @@
+schema {
+  query: Query
+}
+
+enum OptInLevel {
+  Ignore
+
+  Warning
+
+  Error
+}
+
+type Query {
+  experimentalField: String! @requiresOptIn(feature: {
+    name: "experimental"
+    level: Warning
+  }
+  )
+}
+
+input OptInFeature {
+  name: String!
+
+  level: OptInLevel!
+}
+
+directive @requiresOptIn(feature: OptInFeature!) on FIELD_DEFINITION

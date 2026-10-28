@@ -1,0 +1,112 @@
+public final class galak/CompositeResolverBuilder {
+	public fun <init> ()V
+	public final fun build ()Lcom/apollographql/apollo/execution/Resolver;
+	public final fun default (Lcom/apollographql/apollo/execution/Resolver;)V
+	public final fun type (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class galak/CompositeResolverBuilder$TypeBuilder {
+	public fun <init> ()V
+	public final fun field (Ljava/lang/String;Lcom/apollographql/apollo/execution/Resolver;)V
+}
+
+public final class galak/CompositeResolverKt {
+	public static final fun compositeResolver (Lcom/apollographql/apollo/execution/ExecutableSchema$Builder;Lkotlin/jvm/functions/Function1;)Lcom/apollographql/apollo/execution/ExecutableSchema$Builder;
+}
+
+public abstract interface annotation class galak/CompositeResolverMarker : java/lang/annotation/Annotation {
+}
+
+public final class galak/SandboxKt {
+	public static final fun sandboxHtml (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+
+public abstract interface annotation class galak/annotation/GraphQLDefault : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class galak/annotation/GraphQLDirective : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class galak/annotation/GraphQLMutation : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class galak/annotation/GraphQLName : java/lang/annotation/Annotation {
+	public abstract fun name ()Ljava/lang/String;
+}
+
+public abstract interface annotation class galak/annotation/GraphQLQuery : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class galak/annotation/GraphQLScalar : java/lang/annotation/Annotation {
+	public abstract fun coercing ()Ljava/lang/Class;
+}
+
+public abstract interface annotation class galak/annotation/GraphQLSubscription : java/lang/annotation/Annotation {
+}
+
+public final class galak/websocket/ConnectionInitAck : galak/websocket/ConnectionInitResult {
+	public static final field INSTANCE Lgalak/websocket/ConnectionInitAck;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class galak/websocket/ConnectionInitError : galak/websocket/ConnectionInitResult {
+	public fun <init> ()V
+	public fun <init> (Lcom/apollographql/apollo/api/Optional;)V
+	public synthetic fun <init> (Lcom/apollographql/apollo/api/Optional;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getPayload ()Lcom/apollographql/apollo/api/Optional;
+}
+
+public abstract interface class galak/websocket/ConnectionInitResult {
+}
+
+public final class galak/websocket/GraphQLWsWebSocketHandler : galak/websocket/WebSocketHandler {
+	public fun <init> (Lcom/apollographql/apollo/execution/ExecutableSchema;Lkotlinx/coroutines/CoroutineScope;Lcom/apollographql/apollo/api/ExecutionContext;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun <init> (Lcom/apollographql/apollo/execution/ExecutableSchema;Lkotlinx/coroutines/CoroutineScope;Lcom/apollographql/apollo/api/ExecutionContext;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public fun handleMessage (Lgalak/websocket/WebSocketMessage;)V
+}
+
+public final class galak/websocket/SubscriptionWebSocketHandler : galak/websocket/WebSocketHandler {
+	public fun <init> (Lcom/apollographql/apollo/execution/ExecutableSchema;Lkotlinx/coroutines/CoroutineScope;Lcom/apollographql/apollo/api/ExecutionContext;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	public synthetic fun <init> (Lcom/apollographql/apollo/execution/ExecutableSchema;Lkotlinx/coroutines/CoroutineScope;Lcom/apollographql/apollo/api/ExecutionContext;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun close ()V
+	public fun handleMessage (Lgalak/websocket/WebSocketMessage;)V
+}
+
+public final class galak/websocket/WebSocketBinaryMessage : galak/websocket/WebSocketMessage {
+	public fun <init> ([B)V
+	public final fun getData ()[B
+}
+
+public abstract interface class galak/websocket/WebSocketHandler {
+	public abstract fun handleMessage (Lgalak/websocket/WebSocketMessage;)V
+}
+
+public abstract interface class galak/websocket/WebSocketMessage {
+}
+
+public final class galak/websocket/WebSocketTextMessage : galak/websocket/WebSocketMessage {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun getData ()Ljava/lang/String;
+}
+
+public final class galak/websocket/WsConnectionInitAck : galak/websocket/WsConnectionInitResult {
+	public static final field INSTANCE Lgalak/websocket/WsConnectionInitAck;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class galak/websocket/WsConnectionInitError : galak/websocket/WsConnectionInitResult {
+	public fun <init> ()V
+	public fun <init> (Lcom/apollographql/apollo/api/Optional;)V
+	public synthetic fun <init> (Lcom/apollographql/apollo/api/Optional;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getPayload ()Lcom/apollographql/apollo/api/Optional;
+}
+
+public abstract interface class galak/websocket/WsConnectionInitResult {
+}
+

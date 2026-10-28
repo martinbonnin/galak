@@ -1,0 +1,22 @@
+public final class galak/spring/MainKt {
+	public static final fun apolloSandboxRoutes (Lorg/springframework/web/reactive/function/server/CoRouterFunctionDsl;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun apolloSandboxRoutes$default (Lorg/springframework/web/reactive/function/server/CoRouterFunctionDsl;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun galakRoutes (Lorg/springframework/web/reactive/function/server/CoRouterFunctionDsl;Lcom/apollographql/apollo/execution/ExecutableSchema;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;)V
+	public static synthetic fun galakRoutes$default (Lorg/springframework/web/reactive/function/server/CoRouterFunctionDsl;Lcom/apollographql/apollo/execution/ExecutableSchema;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)V
+	public static final fun parseAsGraphQLRequest (Lorg/springframework/web/reactive/function/server/ServerRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public abstract interface class galak/spring/OnRequestResult {
+}
+
+public final class galak/spring/OnRequestResult$Error : galak/spring/OnRequestResult {
+	public fun <init> (Ljava/lang/String;I)V
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getStatus ()I
+}
+
+public final class galak/spring/OnRequestResult$Proceed : galak/spring/OnRequestResult {
+	public fun <init> (Lcom/apollographql/apollo/api/ExecutionContext;)V
+	public final fun getExecutionContext ()Lcom/apollographql/apollo/api/ExecutionContext;
+}
+

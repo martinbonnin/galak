@@ -1,0 +1,53 @@
+[versions]
+kotlin-plugin = "2.4.20-RC"
+ksp = "2.3.2"
+apollo = "5.2.0"
+ktor = "3.5.2"
+gratatouille = "0.1.4-SNAPSHOT-111ca2caffb04690ee1e8c994714a40547444117"
+gratatouille-runtime = "0.1.3"
+
+[libraries]
+kgp = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-plugin" }
+#noinspection GradleDependency,NewerVersionAvailable compatibility with native consumers
+kgp-min = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version = "1.9.0" }
+java-diff-utils = { module = "io.github.java-diff-utils:java-diff-utils", version = "4.16" }
+gradle-api-min = { group = "dev.gradleplugins", name = "gradle-api", version = "8.11.1" }
+apollo-ast = { group = "com.apollographql.apollo", name = "apollo-ast", version.ref = "apollo" }
+apollo-compiler = { group = "com.apollographql.apollo", name = "apollo-compiler", version.ref = "apollo" }
+apollo-api = { group = "com.apollographql.apollo", name = "apollo-api", version.ref = "apollo" }
+apollo-execution = { group = "com.apollographql.apollo", name = "apollo-execution", version.ref = "apollo" }
+atomicfu = "org.jetbrains.kotlinx:atomicfu:0.30.0-beta"
+kotlinpoet = "com.squareup:kotlinpoet:2.2.0"
+kotlinx-datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.7.1"
+gratatouille = { module = "com.gradleup.gratatouille:gratatouille-gradle-plugin", version.ref = "gratatouille" }
+gratatouille-tasks-runtime = { module = "com.gradleup.gratatouille:gratatouille-tasks-runtime", version.ref = "gratatouille-runtime" }
+gratatouille-wiring-runtime = { module = "com.gradleup.gratatouille:gratatouille-wiring-runtime", version.ref = "gratatouille-runtime" }
+arrowCore = "io.arrow-kt:arrow-core:2.2.0"
+coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+ktor-server-netty = { group = "io.ktor", name = "ktor-server-netty", version.ref = "ktor" }
+ktor-server-core = { group = "io.ktor", name = "ktor-server-core", version.ref = "ktor" }
+ktor-server-cors = { group = "io.ktor", name = "ktor-server-cors", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-server-websockets = { group = "io.ktor", name = "ktor-server-websockets", version.ref = "ktor" }
+slf4j-simple = "org.slf4j:slf4j-simple:2.0.13"
+slf4j-nop = "org.slf4j:slf4j-nop:2.0.13"
+ksp-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
+ksp-implementation = { module = "com.google.devtools.ksp:symbol-processing", version.ref = "ksp" }
+ksp-gradle = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin", version.ref = "ksp" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test" } # the Kotlin plugin resolves the version
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-plugin" }
+http4k-bom = "org.http4k:http4k-bom:6.61.0.0"
+http4k-core = { module = "org.http4k:http4k-core" }
+http4k-realtime-core = { module = "org.http4k:http4k-realtime-core" }
+http4k-server-undertow = { module = "org.http4k:http4k-server-undertow" }
+http4k-server-netty = { module = "org.http4k:http4k-server-netty" }
+librarian-gradle-plugin = "com.gradleup.librarian:librarian-gradle-plugin:0.2.2-SNAPSHOT-f341891e1cd5a4e84fe5a394d44d6efeb0dc511d"
+galak-runtime = { module = "net.mbonnin.galak:galak-runtime" }
+galak-subgraph = { module = "net.mbonnin.galak:galak-subgraph" }
+spring-webflux = "org.springframework:spring-webflux:7.1.0-RC1"
+wire-gradle-plugin = "com.squareup.wire:wire-gradle-plugin:5.3.1"
+kotlinx-serialization-core = "org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0"
+[plugins]
+kgp-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-plugin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+galak = { id = "net.mbonnin.galak" }

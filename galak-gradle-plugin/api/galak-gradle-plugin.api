@@ -1,0 +1,27 @@
+public abstract class galak/gradle/GalakExtension {
+	public fun <init> (Lorg/gradle/api/Project;)V
+	public final fun getHasService ()Z
+	public final fun service (Ljava/lang/String;Lorg/gradle/api/Action;)V
+	public final fun setHasService (Z)V
+}
+
+public abstract class galak/gradle/GalakExtensionPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public abstract class galak/gradle/GalakService {
+	public fun <init> ()V
+	public abstract fun getPackageName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getSchemaFile ()Lorg/gradle/api/file/RegularFileProperty;
+}
+
+public final class galak/gradle/Schema_dumpKt {
+	public static final fun enableSchemaDump (Lorg/gradle/api/Project;Ljava/lang/String;Ljava/lang/String;Lorg/gradle/api/file/RegularFileProperty;)V
+}
+
+public final class galak/gradle/VersionKt {
+	public static final field VERSION Ljava/lang/String;
+}
+

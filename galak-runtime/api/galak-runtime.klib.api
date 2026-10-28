@@ -1,0 +1,129 @@
+// Klib ABI Dump
+// Targets: [linuxX64, macosArm64, wasmJs]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <net.mbonnin.galak:galak-runtime>
+open annotation class galak.annotation/GraphQLDefault : kotlin/Annotation { // galak.annotation/GraphQLDefault|null[0]
+    constructor <init>(kotlin/String) // galak.annotation/GraphQLDefault.<init>|<init>(kotlin.String){}[0]
+
+    final val value // galak.annotation/GraphQLDefault.value|{}value[0]
+        final fun <get-value>(): kotlin/String // galak.annotation/GraphQLDefault.value.<get-value>|<get-value>(){}[0]
+}
+
+open annotation class galak.annotation/GraphQLDirective : kotlin/Annotation { // galak.annotation/GraphQLDirective|null[0]
+    constructor <init>() // galak.annotation/GraphQLDirective.<init>|<init>(){}[0]
+}
+
+open annotation class galak.annotation/GraphQLMutation : kotlin/Annotation { // galak.annotation/GraphQLMutation|null[0]
+    constructor <init>() // galak.annotation/GraphQLMutation.<init>|<init>(){}[0]
+}
+
+open annotation class galak.annotation/GraphQLName : kotlin/Annotation { // galak.annotation/GraphQLName|null[0]
+    constructor <init>(kotlin/String) // galak.annotation/GraphQLName.<init>|<init>(kotlin.String){}[0]
+
+    final val name // galak.annotation/GraphQLName.name|{}name[0]
+        final fun <get-name>(): kotlin/String // galak.annotation/GraphQLName.name.<get-name>|<get-name>(){}[0]
+}
+
+open annotation class galak.annotation/GraphQLQuery : kotlin/Annotation { // galak.annotation/GraphQLQuery|null[0]
+    constructor <init>() // galak.annotation/GraphQLQuery.<init>|<init>(){}[0]
+}
+
+open annotation class galak.annotation/GraphQLScalar : kotlin/Annotation { // galak.annotation/GraphQLScalar|null[0]
+    constructor <init>(kotlin.reflect/KClass<*>) // galak.annotation/GraphQLScalar.<init>|<init>(kotlin.reflect.KClass<*>){}[0]
+
+    final val coercing // galak.annotation/GraphQLScalar.coercing|{}coercing[0]
+        final fun <get-coercing>(): kotlin.reflect/KClass<*> // galak.annotation/GraphQLScalar.coercing.<get-coercing>|<get-coercing>(){}[0]
+}
+
+open annotation class galak.annotation/GraphQLSubscription : kotlin/Annotation { // galak.annotation/GraphQLSubscription|null[0]
+    constructor <init>() // galak.annotation/GraphQLSubscription.<init>|<init>(){}[0]
+}
+
+open annotation class galak/CompositeResolverMarker : kotlin/Annotation { // galak/CompositeResolverMarker|null[0]
+    constructor <init>() // galak/CompositeResolverMarker.<init>|<init>(){}[0]
+}
+
+abstract interface galak.websocket/WebSocketHandler { // galak.websocket/WebSocketHandler|null[0]
+    abstract fun handleMessage(galak.websocket/WebSocketMessage) // galak.websocket/WebSocketHandler.handleMessage|handleMessage(galak.websocket.WebSocketMessage){}[0]
+}
+
+sealed interface galak.websocket/ConnectionInitResult // galak.websocket/ConnectionInitResult|null[0]
+
+sealed interface galak.websocket/WebSocketMessage // galak.websocket/WebSocketMessage|null[0]
+
+sealed interface galak.websocket/WsConnectionInitResult // galak.websocket/WsConnectionInitResult|null[0]
+
+final class galak.websocket/ConnectionInitError : galak.websocket/ConnectionInitResult { // galak.websocket/ConnectionInitError|null[0]
+    constructor <init>(com.apollographql.apollo.api/Optional<kotlin/Any?> = ...) // galak.websocket/ConnectionInitError.<init>|<init>(com.apollographql.apollo.api.Optional<kotlin.Any?>){}[0]
+
+    final val payload // galak.websocket/ConnectionInitError.payload|{}payload[0]
+        final fun <get-payload>(): com.apollographql.apollo.api/Optional<kotlin/Any?> // galak.websocket/ConnectionInitError.payload.<get-payload>|<get-payload>(){}[0]
+}
+
+final class galak.websocket/GraphQLWsWebSocketHandler : galak.websocket/WebSocketHandler { // galak.websocket/GraphQLWsWebSocketHandler|null[0]
+    constructor <init>(com.apollographql.apollo.execution/ExecutableSchema, kotlinx.coroutines/CoroutineScope, com.apollographql.apollo.api/ExecutionContext, kotlin.coroutines/SuspendFunction1<galak.websocket/WebSocketMessage, kotlin/Unit>, kotlin.coroutines/SuspendFunction1<kotlin/Any?, galak.websocket/WsConnectionInitResult> = ...) // galak.websocket/GraphQLWsWebSocketHandler.<init>|<init>(com.apollographql.apollo.execution.ExecutableSchema;kotlinx.coroutines.CoroutineScope;com.apollographql.apollo.api.ExecutionContext;kotlin.coroutines.SuspendFunction1<galak.websocket.WebSocketMessage,kotlin.Unit>;kotlin.coroutines.SuspendFunction1<kotlin.Any?,galak.websocket.WsConnectionInitResult>){}[0]
+
+    final fun close() // galak.websocket/GraphQLWsWebSocketHandler.close|close(){}[0]
+    final fun handleMessage(galak.websocket/WebSocketMessage) // galak.websocket/GraphQLWsWebSocketHandler.handleMessage|handleMessage(galak.websocket.WebSocketMessage){}[0]
+}
+
+final class galak.websocket/SubscriptionWebSocketHandler : galak.websocket/WebSocketHandler { // galak.websocket/SubscriptionWebSocketHandler|null[0]
+    constructor <init>(com.apollographql.apollo.execution/ExecutableSchema, kotlinx.coroutines/CoroutineScope, com.apollographql.apollo.api/ExecutionContext, kotlin.coroutines/SuspendFunction1<galak.websocket/WebSocketMessage, kotlin/Unit>, kotlin.coroutines/SuspendFunction1<kotlin/Any?, galak.websocket/ConnectionInitResult> = ...) // galak.websocket/SubscriptionWebSocketHandler.<init>|<init>(com.apollographql.apollo.execution.ExecutableSchema;kotlinx.coroutines.CoroutineScope;com.apollographql.apollo.api.ExecutionContext;kotlin.coroutines.SuspendFunction1<galak.websocket.WebSocketMessage,kotlin.Unit>;kotlin.coroutines.SuspendFunction1<kotlin.Any?,galak.websocket.ConnectionInitResult>){}[0]
+
+    final fun close() // galak.websocket/SubscriptionWebSocketHandler.close|close(){}[0]
+    final fun handleMessage(galak.websocket/WebSocketMessage) // galak.websocket/SubscriptionWebSocketHandler.handleMessage|handleMessage(galak.websocket.WebSocketMessage){}[0]
+}
+
+final class galak.websocket/WebSocketBinaryMessage : galak.websocket/WebSocketMessage { // galak.websocket/WebSocketBinaryMessage|null[0]
+    constructor <init>(kotlin/ByteArray) // galak.websocket/WebSocketBinaryMessage.<init>|<init>(kotlin.ByteArray){}[0]
+
+    final val data // galak.websocket/WebSocketBinaryMessage.data|{}data[0]
+        final fun <get-data>(): kotlin/ByteArray // galak.websocket/WebSocketBinaryMessage.data.<get-data>|<get-data>(){}[0]
+}
+
+final class galak.websocket/WebSocketTextMessage : galak.websocket/WebSocketMessage { // galak.websocket/WebSocketTextMessage|null[0]
+    constructor <init>(kotlin/String) // galak.websocket/WebSocketTextMessage.<init>|<init>(kotlin.String){}[0]
+
+    final val data // galak.websocket/WebSocketTextMessage.data|{}data[0]
+        final fun <get-data>(): kotlin/String // galak.websocket/WebSocketTextMessage.data.<get-data>|<get-data>(){}[0]
+}
+
+final class galak.websocket/WsConnectionInitError : galak.websocket/WsConnectionInitResult { // galak.websocket/WsConnectionInitError|null[0]
+    constructor <init>(com.apollographql.apollo.api/Optional<kotlin/Any?> = ...) // galak.websocket/WsConnectionInitError.<init>|<init>(com.apollographql.apollo.api.Optional<kotlin.Any?>){}[0]
+
+    final val payload // galak.websocket/WsConnectionInitError.payload|{}payload[0]
+        final fun <get-payload>(): com.apollographql.apollo.api/Optional<kotlin/Any?> // galak.websocket/WsConnectionInitError.payload.<get-payload>|<get-payload>(){}[0]
+}
+
+final class galak/CompositeResolverBuilder { // galak/CompositeResolverBuilder|null[0]
+    constructor <init>() // galak/CompositeResolverBuilder.<init>|<init>(){}[0]
+
+    final fun build(): com.apollographql.apollo.execution/Resolver // galak/CompositeResolverBuilder.build|build(){}[0]
+    final fun default(com.apollographql.apollo.execution/Resolver) // galak/CompositeResolverBuilder.default|default(com.apollographql.apollo.execution.Resolver){}[0]
+    final fun type(kotlin/String, kotlin/Function1<galak/CompositeResolverBuilder.TypeBuilder, kotlin/Unit>) // galak/CompositeResolverBuilder.type|type(kotlin.String;kotlin.Function1<galak.CompositeResolverBuilder.TypeBuilder,kotlin.Unit>){}[0]
+
+    final class TypeBuilder { // galak/CompositeResolverBuilder.TypeBuilder|null[0]
+        constructor <init>() // galak/CompositeResolverBuilder.TypeBuilder.<init>|<init>(){}[0]
+
+        final fun field(kotlin/String, com.apollographql.apollo.execution/Resolver) // galak/CompositeResolverBuilder.TypeBuilder.field|field(kotlin.String;com.apollographql.apollo.execution.Resolver){}[0]
+    }
+}
+
+final object galak.websocket/ConnectionInitAck : galak.websocket/ConnectionInitResult { // galak.websocket/ConnectionInitAck|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // galak.websocket/ConnectionInitAck.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // galak.websocket/ConnectionInitAck.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // galak.websocket/ConnectionInitAck.toString|toString(){}[0]
+}
+
+final object galak.websocket/WsConnectionInitAck : galak.websocket/WsConnectionInitResult { // galak.websocket/WsConnectionInitAck|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // galak.websocket/WsConnectionInitAck.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // galak.websocket/WsConnectionInitAck.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // galak.websocket/WsConnectionInitAck.toString|toString(){}[0]
+}
+
+final fun (com.apollographql.apollo.execution/ExecutableSchema.Builder).galak/compositeResolver(kotlin/Function1<galak/CompositeResolverBuilder, kotlin/Unit>): com.apollographql.apollo.execution/ExecutableSchema.Builder // galak/compositeResolver|compositeResolver@com.apollographql.apollo.execution.ExecutableSchema.Builder(kotlin.Function1<galak.CompositeResolverBuilder,kotlin.Unit>){}[0]
+final fun galak/sandboxHtml(kotlin/String, kotlin/String): kotlin/String // galak/sandboxHtml|sandboxHtml(kotlin.String;kotlin.String){}[0]

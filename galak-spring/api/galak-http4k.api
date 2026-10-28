@@ -1,0 +1,7 @@
+public final class galak/http4k/MainKt {
+	public static final fun galakHandler (Lgalak/ExecutableSchema;Lcom/apollographql/apollo/api/ExecutionContext;)Lorg/http4k/routing/RoutingHttpHandler;
+	public static synthetic fun galakHandler$default (Lgalak/ExecutableSchema;Lcom/apollographql/apollo/api/ExecutionContext;ILjava/lang/Object;)Lorg/http4k/routing/RoutingHttpHandler;
+	public static final fun galakSandboxHandler ()Lkotlin/jvm/functions/Function1;
+	public static final fun galakWebSocketHandler (Lgalak/ExecutableSchema;Lkotlin/jvm/functions/Function1;)Lkotlin/jvm/functions/Function1;
+}
+

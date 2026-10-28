@@ -1,0 +1,35 @@
+// Klib ABI Dump
+// Targets: [macosArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <net.mbonnin.galak:galak-subgraph>
+open annotation class galak.subgraph/GraphQLKey : kotlin/Annotation { // galak.subgraph/GraphQLKey|null[0]
+    constructor <init>() // galak.subgraph/GraphQLKey.<init>|<init>(){}[0]
+}
+
+final class galak.subgraph/Ftv1Context : com.apollographql.apollo.api/ExecutionContext.Element { // galak.subgraph/Ftv1Context|null[0]
+    constructor <init>() // galak.subgraph/Ftv1Context.<init>|<init>(){}[0]
+
+    final val apolloOperationTracing // galak.subgraph/Ftv1Context.apolloOperationTracing|{}apolloOperationTracing[0]
+        final fun <get-apolloOperationTracing>(): galak.apollo.reporting/ApolloOperationTracing // galak.subgraph/Ftv1Context.apolloOperationTracing.<get-apolloOperationTracing>|<get-apolloOperationTracing>(){}[0]
+    final val key // galak.subgraph/Ftv1Context.key|{}key[0]
+        final fun <get-key>(): galak.subgraph/Ftv1Context.Key // galak.subgraph/Ftv1Context.key.<get-key>|<get-key>(){}[0]
+
+    final object Key : com.apollographql.apollo.api/ExecutionContext.Key<galak.subgraph/Ftv1Context> // galak.subgraph/Ftv1Context.Key|null[0]
+}
+
+final class galak.subgraph/Ftv1Instrumentation : com.apollographql.apollo.execution/Instrumentation { // galak.subgraph/Ftv1Instrumentation|null[0]
+    constructor <init>() // galak.subgraph/Ftv1Instrumentation.<init>|<init>(){}[0]
+
+    final fun onField(com.apollographql.apollo.execution/ResolveInfo): com.apollographql.apollo.execution/FieldCallback? // galak.subgraph/Ftv1Instrumentation.onField|onField(com.apollographql.apollo.execution.ResolveInfo){}[0]
+    final fun onOperation(com.apollographql.apollo.execution/OperationInfo): com.apollographql.apollo.execution/OperationCallback? // galak.subgraph/Ftv1Instrumentation.onOperation|onOperation(com.apollographql.apollo.execution.OperationInfo){}[0]
+}
+
+final object galak.subgraph/_AnyCoercing : com.apollographql.apollo.execution/Coercing<kotlin/Any?> { // galak.subgraph/_AnyCoercing|null[0]
+    final fun deserialize(kotlin/Any?): kotlin/Any? // galak.subgraph/_AnyCoercing.deserialize|deserialize(kotlin.Any?){}[0]
+    final fun parseLiteral(com.apollographql.apollo.ast/GQLValue): kotlin/Any? // galak.subgraph/_AnyCoercing.parseLiteral|parseLiteral(com.apollographql.apollo.ast.GQLValue){}[0]
+    final fun serialize(kotlin/Any?): kotlin/Any? // galak.subgraph/_AnyCoercing.serialize|serialize(kotlin.Any?){}[0]
+}

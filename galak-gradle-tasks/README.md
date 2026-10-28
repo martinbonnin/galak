@@ -1,0 +1,1 @@
+# Module galak-gradle-plugin
