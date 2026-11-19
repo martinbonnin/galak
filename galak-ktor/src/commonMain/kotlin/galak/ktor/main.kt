@@ -5,6 +5,7 @@ import com.apollographql.apollo.execution.ExecutableSchema
 import com.apollographql.apollo.execution.GraphQLRequest
 import com.apollographql.apollo.execution.GraphQLResponse
 import com.apollographql.apollo.execution.parseAsGraphQLRequest
+import com.apollographql.apollo.execution.toExternalValueMap
 import galak.*
 import galak.websocket.ConnectionInitAck
 import galak.websocket.GraphQLWsWebSocketHandler
@@ -81,7 +82,10 @@ private fun GraphQLResponse.toByteArray(): ByteArray {
 suspend fun ApplicationRequest.parseAsGraphQLRequest(): Result<GraphQLRequest> {
   return when (httpMethod) {
     HttpMethod.Post, HttpMethod.Query -> receiveChannel().buffer().parseAsGraphQLRequest()
-    HttpMethod.Get -> queryString().parseAsGraphQLRequest()
+    HttpMethod.Get -> queryParameters.entries().associate { it.key to it.value }.toExternalValueMap().fold(
+      onSuccess = { it.parseAsGraphQLRequest() },
+      onFailure = { Result.failure(it) }
+    )
     else -> Result.failure(Exception("Unhandled method: $httpMethod"))
   }
 }

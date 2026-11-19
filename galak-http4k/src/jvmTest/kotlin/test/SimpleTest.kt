@@ -34,6 +34,24 @@ class SimpleTest {
   }
 
   @Test
+  fun plusInQueryString() {
+    // Browsers encode spaces as '+' in query strings (application/x-www-form-urlencoded)
+    val response = galakHandler(executableSchema)(Request(Method.GET, "https://example.com/graphql?query=query+Q+%7B+foo+%7D"))
+
+    val responseText = response.body.stream.reader().readText()
+    assertEquals("{\"data\":{\"foo\":\"bar\"}}", responseText)
+  }
+
+  @Test
+  fun encodedPlusInQueryString() {
+    // A literal '+' is encoded as %2B and must be kept as is
+    val response = galakHandler(executableSchema)(Request(Method.GET, "https://example.com/graphql?query=%7Bfoo%7D&variables=%7B%22a%22%3A%22%2B%22%7D"))
+
+    val responseText = response.body.stream.reader().readText()
+    assertEquals("{\"data\":{\"foo\":\"bar\"}}", responseText)
+  }
+
+  @Test
   fun queryMethod() {
     val request = Request(Method.QUERY, "https://example.com/graphql")
         .header("content-type", "application/json")

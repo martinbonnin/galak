@@ -5,6 +5,7 @@ package galak.http4k
 import com.apollographql.apollo.api.ExecutionContext
 import com.apollographql.apollo.execution.ExecutableSchema
 import com.apollographql.apollo.execution.parseAsGraphQLRequest
+import com.apollographql.apollo.execution.toExternalValueMap
 import galak.sandboxHtml
 import galak.websocket.ConnectionInitAck
 import galak.websocket.ConnectionInitError
@@ -45,7 +46,13 @@ fun galakHandler(
         .header("Accept-Query", "application/json")
     }
     val graphQLRequestResult = when (request.method) {
-      Method.GET -> request.uri.query.parseAsGraphQLRequest()
+      Method.GET -> request.uri.query.toParameters()
+          .groupBy({ it.first }, { it.second.orEmpty() })
+          .toExternalValueMap()
+          .fold(
+              onSuccess = { it.parseAsGraphQLRequest() },
+              onFailure = { Result.failure(it) }
+          )
       Method.POST, Method.QUERY -> request.body.stream.source().buffer().use { it.parseAsGraphQLRequest() }
       else -> error("")
     }
