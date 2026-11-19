@@ -135,9 +135,9 @@ internal class CoercingsBuilder(
               add("return %T.valueOf(value.toString())\n", targetClassName.asKotlinPoet())
             }
             add("}\n")
-            add("override fun parseLiteral(gqlValue: %T): %T {\n", AstValue, targetClassName.asKotlinPoet())
+            add("override fun parseLiteral(value: %T): %T {\n", AstValue, targetClassName.asKotlinPoet())
             withIndent {
-              add("return %T.valueOf((gqlValue as %T).value)\n", targetClassName.asKotlinPoet(), AstEnumValue)
+              add("return %T.valueOf((value as %T).value)\n", targetClassName.asKotlinPoet(), AstEnumValue)
             }
             add("}\n")
           }
@@ -177,7 +177,7 @@ internal class CoercingsBuilder(
               add(")\n")
             }
             add("}\n")
-            add("override fun parseLiteral(gqlValue: %T): %T {\n", AstValue, targetClassName.asKotlinPoet())
+            add("override fun parseLiteral(value: %T): %T {\n", AstValue, targetClassName.asKotlinPoet())
             withIndent {
               add("error(\"Input objects cannot be parsed from literals\")")
             }

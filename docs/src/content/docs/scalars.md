@@ -51,7 +51,7 @@ interface Coercing<T> {
   /**
    * Parses from a GraphQL value to an internal value (Kotlin)
    */
-  fun parseLiteral(gqlValue: GQLValue): T
+  fun parseLiteral(value: GQLValue): T
 }
 ```
 
