@@ -93,7 +93,8 @@ suspend fun ApplicationRequest.parseAsGraphQLRequest(): Result<GraphQLRequest> {
 fun Application.galakModule(
   executableSchema: ExecutableSchema,
   path: String = "/graphql",
-  executionContext: (RoutingRequest) -> ExecutionContext = { ExecutionContext.Empty }
+  executionContext: (RoutingRequest) -> ExecutionContext = { ExecutionContext.Empty },
+  enableHttpQuery: Boolean = true,
 ) {
   routing {
     post(path) {
@@ -102,12 +103,18 @@ fun Application.galakModule(
     get(path) {
       call.respondGraphQL(executableSchema, executionContext(call.request))
     }
-    query(path) {
-      call.respondGraphQL(executableSchema, executionContext(call.request))
+    if (enableHttpQuery) {
+      query(path) {
+        call.respondGraphQL(executableSchema, executionContext(call.request))
+      }
     }
     options(path) {
-      call.response.header(HttpHeaders.Allow, "GET, POST, QUERY")
-      call.response.header("Accept-Query", "application/json")
+      if (enableHttpQuery) {
+        call.response.header(HttpHeaders.Allow, "GET, POST, QUERY")
+        call.response.header("Accept-Query", "application/json")
+      } else {
+        call.response.header(HttpHeaders.Allow, "GET, POST")
+      }
       call.respond(HttpStatusCode.OK)
     }
   }

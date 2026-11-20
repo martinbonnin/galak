@@ -38,8 +38,14 @@ fun CoRouterFunctionDsl.galakRoutes(
   path: String = "/graphql",
   onRequest: (ServerRequest) -> OnRequestResult = { OnRequestResult.Proceed(ExecutionContext.Empty) },
   onResponse: ServerResponse.BodyBuilder.(GraphQLResponse, ExecutionContext) -> Unit = { _, _ -> },
+  enableHttpQuery: Boolean = true,
 ) {
-  (path and RequestPredicates.methods(HttpMethod.GET, HttpMethod.POST, HttpMethod.QUERY)).invoke { serverRequest ->
+  val methods = if (enableHttpQuery) {
+    arrayOf(HttpMethod.GET, HttpMethod.POST, HttpMethod.QUERY)
+  } else {
+    arrayOf(HttpMethod.GET, HttpMethod.POST)
+  }
+  (path and RequestPredicates.methods(*methods)).invoke { serverRequest ->
     val graphqlRequestResult = serverRequest.parseAsGraphQLRequest()
     if (!graphqlRequestResult.isSuccess) {
       return@invoke badRequest().buildAndAwait()
@@ -63,8 +69,12 @@ fun CoRouterFunctionDsl.galakRoutes(
       .bodyValueAndAwait(graphQLResponse.toByteArray())
   }
   OPTIONS(path) {
-    ok().allow(HttpMethod.GET, HttpMethod.POST, HttpMethod.QUERY)
-      .header("Accept-Query", "application/json")
+    ok().allow(*methods)
+      .apply {
+        if (enableHttpQuery) {
+          header("Accept-Query", "application/json")
+        }
+      }
       .buildAndAwait()
   }
 }

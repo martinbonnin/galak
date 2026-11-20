@@ -23,6 +23,7 @@ import okio.buffer
 import okio.source
 import org.http4k.core.*
 import org.http4k.core.Status.Companion.BAD_REQUEST
+import org.http4k.core.Status.Companion.METHOD_NOT_ALLOWED
 import org.http4k.core.Status.Companion.OK
 import org.http4k.core.Status.Companion.PERMANENT_REDIRECT
 import org.http4k.lens.Header
@@ -37,13 +38,23 @@ import kotlin.coroutines.EmptyCoroutineContext
 fun galakHandler(
   executableSchema: ExecutableSchema,
   coroutineContext: (Request) -> CoroutineContext = { EmptyCoroutineContext },
-  executionContext: (Request) -> ExecutionContext = { ExecutionContext.Empty }
+  executionContext: (Request) -> ExecutionContext = { ExecutionContext.Empty },
+  enableHttpQuery: Boolean = true,
 ) : HttpHandler {
   return handler@{ request ->
     if (request.method == Method.OPTIONS) {
-      return@handler Response(OK)
-        .header("Allow", "GET, POST, QUERY")
-        .header("Accept-Query", "application/json")
+      return@handler if (enableHttpQuery) {
+        Response(OK)
+          .header("Allow", "GET, POST, QUERY")
+          .header("Accept-Query", "application/json")
+      } else {
+        Response(OK)
+          .header("Allow", "GET, POST")
+      }
+    }
+    if (request.method == Method.QUERY && !enableHttpQuery) {
+      return@handler Response(METHOD_NOT_ALLOWED)
+        .header("Allow", "GET, POST")
     }
     val graphQLRequestResult = when (request.method) {
       Method.GET -> request.uri.query.toParameters()
@@ -148,8 +159,9 @@ fun galakRoutingHttpHandler(
     path: String = "/graphql",
     coroutineContext: (Request) -> CoroutineContext = { EmptyCoroutineContext },
     executionContext: (Request) -> ExecutionContext = { ExecutionContext.Empty },
+    enableHttpQuery: Boolean = true,
 ): RoutingHttpHandler {
-  return path bind galakHandler(executableSchema, coroutineContext, executionContext)
+  return path bind galakHandler(executableSchema, coroutineContext, executionContext, enableHttpQuery)
 }
 
 fun galakSandboxRoutingHttpHandler(

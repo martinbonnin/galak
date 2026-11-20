@@ -70,4 +70,23 @@ class SimpleTest {
     assertEquals("GET, POST, QUERY", response.header("Allow"))
     assertEquals("application/json", response.header("Accept-Query"))
   }
+
+  @Test
+  fun queryMethodDisabled() {
+    val request = Request(Method.QUERY, "https://example.com/graphql")
+        .header("content-type", "application/json")
+        .body("{\"query\":\"{foo}\"}")
+    val response = galakHandler(executableSchema, enableHttpQuery = false)(request)
+
+    assertEquals(Status.METHOD_NOT_ALLOWED, response.status)
+  }
+
+  @Test
+  fun optionsMethodQueryDisabled() {
+    val response = galakHandler(executableSchema, enableHttpQuery = false)(Request(Method.OPTIONS, "https://example.com/graphql"))
+
+    assertEquals(Status.OK, response.status)
+    assertEquals("GET, POST", response.header("Allow"))
+    assertEquals(null, response.header("Accept-Query"))
+  }
 }
